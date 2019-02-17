@@ -64,8 +64,8 @@ if __name__ == '__main__':
     options, _ = parser.parse_args()
     if options.dir or options.pic:
         infos = Pic_Location(pic_dir=options.dir).run() if options.dir else Pic_Location(pic=options.pic).run()
-        if len(info)>0:
-            for info in infos:
+        for info in infos:
+            if len(info)>0:
                 print (u"图片：%s\n拍摄设备：%s\n拍摄时间：%s\n拍摄地址：%s\n经度：%s\n纬度：%s\n******************" % (
                     info['photo'], info['device'], info['time'], info['addr'], info['lon'], info['lat']))
     else:
